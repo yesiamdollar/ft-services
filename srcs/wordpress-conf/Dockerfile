@@ -36,7 +36,7 @@ sed -i "s|;*max_file_uploads =.*|max_file_uploads = ${PHP_MAX_FILE_UPLOAD}|i" /e
 sed -i "s|;*post_max_size =.*|post_max_size = ${PHP_MAX_POST}|i" /etc/php7/php.ini && \
 sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= ${PHP_CGI_FIX_PATHINFO}|i" /etc/php7/php.ini
 
-RUN tar -C /tmp/wordpress -xvf /tmp/wordpress.tar.gz 
+RUN tar -C /tmp/ -xvf /tmp/wordpress.tar.gz 
 RUN cp -rf /tmp/wordpress/* /www/
 
 RUN mkdir /run/openrc\
