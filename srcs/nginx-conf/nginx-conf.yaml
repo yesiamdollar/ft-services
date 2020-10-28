@@ -22,7 +22,7 @@ spec:
         - 
           name: "nginx-https"
           containerPort: 443
-        command: ["nginx", "-g", "daemon off;"]
+        # command: ["nginx", "-g", "daemon off;"]
 ---
 apiVersion: v1
 kind: Service
