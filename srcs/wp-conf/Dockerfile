@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --no-cache nginx openrc tar php7-fpm
+RUN apk add --no-cache nginx openrc tar
 RUN adduser -D -g 'www' www
 RUN mkdir /www ; chown -R www:www /www
 RUN mkdir /run/nginx; touch /run/nginx/nginx.pid
@@ -43,7 +43,7 @@ RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
 
-
+EXPOSE 80
 CMD php-fpm7 -R && nginx -g "daemon off;"
 
 

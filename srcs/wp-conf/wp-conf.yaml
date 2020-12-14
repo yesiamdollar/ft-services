@@ -32,6 +32,8 @@ spec:
     app: wp
   ports:
       - name: "http"
+        protocol: TCP
         port: 5050
-        targetPort: "wp-http"
+        tier: frontend
+        targetPort: 80
   type: LoadBalancer

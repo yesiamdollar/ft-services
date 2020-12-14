@@ -9,4 +9,4 @@ COPY my.cnf /etc/mysql/my.cnf
 
 EXPOSE 3306
 
-CMD sh setup.sh
+ENTRYPOINT sh setup.sh
