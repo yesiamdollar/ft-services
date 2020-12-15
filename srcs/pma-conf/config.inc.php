@@ -33,7 +33,7 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 
-$cfg['TempDir'] = 'tmp';
+$cfg['TempDir'] = './tmp/';
 /**
  * phpMyAdmin configuration storage settings.
  */

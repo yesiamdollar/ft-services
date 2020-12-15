@@ -13,7 +13,8 @@ RUN tar -C /tmp/ -xvf /tmp/pma.tar.gz
 RUN cp -rf /tmp/pma/* /www/
 ADD config.inc.php /
 RUN cp /config.inc.php /www/
-RUN mkdir /www/tmp & chmod 777 tmp
+RUN mkdir /www/tmp/
+RUN chmod 777 /www/tmp
 
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
