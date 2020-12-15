@@ -11,7 +11,7 @@ RUN cd /tmp ; wget https://wordpress.org/latest.tar.gz ; cd ..
 ADD wp-config.php /
 
 
-RUN tar -C /tmp/ -xvf /tmp/wordpress.tar.gz 
+RUN tar -C /tmp/ -xvf /tmp/latest.tar.gz
 RUN cp -rf /tmp/wordpress/* /www/
 RUN cp /wp-config.php /www/
 RUN mkdir /run/openrc\
