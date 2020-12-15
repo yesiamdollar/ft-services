@@ -12,13 +12,14 @@ ADD wp-config.php /
 
 
 RUN tar -C /tmp/ -xvf /tmp/latest.tar.gz
+
 RUN cp -rf /tmp/wordpress/* /www/
 RUN cp /wp-config.php /www/
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
 
-EXPOSE 80
+EXPOSE 5050
 CMD php-fpm7 -R && nginx -g "daemon off;"
 
 

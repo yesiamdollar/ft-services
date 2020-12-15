@@ -55,6 +55,9 @@ define( 'SECURE_AUTH_SALT', 'Akh|aDo8^j1jjQPwWMkL?AQ?|8{(I 8G`|~6MAtI$2J9+IGnG`D
 define( 'LOGGED_IN_SALT',   '9ylz7=qEl00@QYfkTfQ@]|d-j,r^VEfPc<SmU+5!aa@SU@cm~vVih6.@, h.tIHH' );
 define( 'NONCE_SALT',       '!x]j?EAKjdw]L(#7{:|?T/Db x|oBVt3TIO33mQl9kS_!E6.T]ly4l=V?s-e|x& ' );
 
+
+define('CONCATENATE_SCRIPTS', false); 
+
 /**#@-*/
 
 /**
