@@ -14,8 +14,9 @@ kubectl apply -f srcs/metallb/metallb-config.yaml
 
 
 docker build ./srcs/nginx-conf/ -t nginx-server
-
 docker build ./srcs/wp-conf/ -t wp-server
+docker build ./srcs/mysql-conf/ -t mysql-server
 
 kubectl create -f ./srcs/nginx-conf/nginx-conf.yaml
 kubectl create -f ./srcs/wp-conf/wp-conf.yaml
+kubectl create -f ./srcs/mysql-conf/mysql-conf.yaml

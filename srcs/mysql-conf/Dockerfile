@@ -8,6 +8,7 @@ COPY setup.sh setup.sh
 COPY my.cnf /etc/mysql/my.cnf
 COPY mariadb-server.cnf /etc/my.cnf.d/
 ADD users.sql /
+ADD wordpress_db.sql /
 VOLUME ["/var/lib/mysql"]
 EXPOSE 3306
 

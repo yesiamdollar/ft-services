@@ -34,6 +34,5 @@ spec:
       - name: "http"
         protocol: TCP
         port: 5050
-        tier: frontend
         targetPort: 80
   type: LoadBalancer
