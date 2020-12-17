@@ -1,3 +1,5 @@
+#!/bin/sh
+
 minikube start --driver=virtualbox
 docker-machine create default
 docker-machine env default
@@ -5,9 +7,8 @@ eval $(docker-machine env default)
 minikube docker-env
 eval $(minikube docker-env)
 
-# create image
+# echo "      - $(minikube ip)-$(minikube ip)" >> ./srcs/metallb/metallb-config.yaml
 
-# enable metallb on minikube addons
 
 minikube addons enable metallb
 kubectl apply -f srcs/metallb/metallb-config.yaml
