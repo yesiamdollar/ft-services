@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ftps
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        imagePullPolicy: Never
+        image: ftps-server
+        ports:
+        - 
+          name: "ftps-port"
+          containerPort: 21
+        - 
+          name: "ftps0"
+          containerPort: 30000
+        - 
+          name: "ftps1"
+          containerPort: 30001
+        - 
+          name: "ftps2"
+          containerPort: 30002
+        - 
+          name: "ftps3"
+          containerPort: 30003
+        - 
+          name: "ftps4"
+          containerPort: 30004
+        - 
+          name: "ftps5"
+          containerPort: 30005
+        - 
+          name: "ftps6"
+          containerPort: 30006
+        - 
+          name: "ftps7"
+          containerPort: 30007
+        - 
+          name: "ftps8"
+          containerPort: 30008
+        - 
+          name: "ftps9"
+          containerPort: 30009
+        
+        # command: ["nginx", "-g", "daemon off;"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: ftps
+  ports:
+      - name: "main-port"
+        port: 21
+        targetPort: 21
+      -
+        name: "ftps-0"
+        port: 30000
+        targetPort: 30000
+      -
+        name: "ftps-1"
+        port: 30001
+        targetPort: 30001
+      -
+        name: "ftps-2"
+        port: 30002
+        targetPort: 30002
+      -
+        name: "ftps-3"
+        port: 30003
+        targetPort: 30003
+      -
+        name: "ftps-4"
+        port: 30004
+        targetPort: 30004
+      -
+        name: "ftps-5"
+        port: 30005
+        targetPort: 30005
+      -
+        name: "ftps-6"
+        port: 30006
+        targetPort: 30006
+      -
+        name: "ftps-7"
+        port: 30007
+        targetPort: 30007
+      -
+        name: "ftps-8"
+        port: 30008
+        targetPort: 30008
+      -
+        name: "ftps-9"
+        port: 30009
+        targetPort: 30009
+  type: LoadBalancer
