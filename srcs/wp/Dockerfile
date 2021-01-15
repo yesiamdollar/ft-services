@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.11
 
 RUN apk add --no-cache nginx openrc tar wget
 RUN adduser -D -g 'www' www

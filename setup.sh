@@ -19,11 +19,13 @@ sed -i '' s/CIP/$(minikube ip)/g "srcs/nginx/nginx.conf"
 
 declare -a names=("nginx" "wp" "mysql" "pma" "ftps" "grafana")
 
+#declare -a names=("nginx")
+
 for name in "${names[@]}"; do
     docker build ./srcs/$name/ -t $name-server
 done
 
-kubectl apply -f srcs/metallb/metallb-config.yaml
+kubectl apply -f srcs/metallb/metallb-conf.yaml
 # docker build ./srcs/nginx-conf/ -t nginx-server
 # docker build ./srcs/wp-conf/ -t wp-server
 # docker build ./srcs/mysql-conf/ -t mysql-server

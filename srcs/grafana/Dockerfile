@@ -1,7 +1,7 @@
-FROM alpine
+FROM alpine:3.11
 
-RUN apk update && apk upgrade
-copy grafana.tar.gz /tmp
+RUN apk update && apk upgrade && apk add wget
+RUN wget https://dl.grafana.com/oss/release/grafana-7.0.5.linux-amd64.tar.gz -o /tmp/grafana.tar.gz
 copy glibc-2.32-r0.apk /tmp
 copy grafana.sh /
 
@@ -10,5 +10,6 @@ RUN apk add --update ca-certificates && \
     rm -rf /tmp/glibc-2.32-r0.apk
 
 RUN tar -xvf /tmp/grafana.tar.gz -C /opt && mv /opt/grafana-7.3.6/ /opt/grafana
+
 EXPOSE 3000
 CMD sh grafana.sh
