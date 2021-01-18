@@ -17,7 +17,7 @@ kubectl apply -f srcs/metallb/metallb-conf.yaml
 sed -i '' s/CIP/$(minikube ip)/g "srcs/ftps/ftps.sh"
 sed -i '' s/CIP/$(minikube ip)/g "srcs/nginx/nginx.conf"
 
-declare -a names=("nginx" "wp" "mysql" "pma" "ftps" "grafana")
+declare -a names=("nginx" "wp" "mysql" "pma" "ftps" "grafana" "influxdb")
 
 #declare -a names=("nginx")
 

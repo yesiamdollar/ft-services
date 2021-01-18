@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-RUN apk add --no-cache nginx openssl openssh
+RUN apk add --no-cache wget nginx openssl openssh
 RUN adduser -D -g 'www' www
 RUN mkdir /www ; chown -R www:www /www 
 RUN openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=BG/O=dollar, Inc./CN=localhost"\
@@ -15,7 +15,8 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ssh.sh /tmp
 RUN sh /tmp/ssh.sh
 COPY run.sh /
-
+COPY telegraf.sh /
+RUN sh telegraf.sh
 COPY ./index.html /www/index.html
 EXPOSE 80 443 22
 

@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-RUN apk add --no-cache nginx openrc tar
+RUN apk add --no-cache wget nginx openrc tar
 RUN adduser -D -g 'www' www
 RUN mkdir /www ; chown -R www:www /www
 RUN mkdir /run/nginx; touch /run/nginx/nginx.pid
@@ -18,6 +18,9 @@ RUN chmod 777 /www/tmp
 
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
+
+COPY telegraf.sh /
+RUN sh telegraf.sh
 
 EXPOSE 80
 

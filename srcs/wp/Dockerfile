@@ -19,6 +19,9 @@ RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
 
+COPY telegraf.sh /
+RUN sh telegraf.sh
+
 EXPOSE 5050
 CMD php-fpm7 -R && nginx -g "daemon off;"
 

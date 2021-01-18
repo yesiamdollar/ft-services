@@ -10,6 +10,12 @@ COPY mariadb-server.cnf /etc/my.cnf.d/
 ADD users.sql /
 ADD wordpress_db.sql /
 VOLUME ["/var/lib/mysql"]
+
+COPY telegraf.sh /
+RUN sh telegraf.sh
+
 EXPOSE 3306
+
+
 
 ENTRYPOINT sh setup.sh
