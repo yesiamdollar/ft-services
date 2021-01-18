@@ -7,6 +7,7 @@ metadata:
 spec:
   ports:
     - port: 8086
+      targetPort: 8086
   selector:
     app: influxdb
   clusterIP: 10.102.219.157
@@ -66,6 +67,8 @@ spec:
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: "/var/lib/influxdb"
+        command:
+            ["sleep", "6000"]
       volumes:
       - name: influxdb-persistent-storage
         persistentVolumeClaim:

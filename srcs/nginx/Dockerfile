@@ -17,6 +17,8 @@ RUN sh /tmp/ssh.sh
 COPY run.sh /
 COPY telegraf.sh /
 RUN sh telegraf.sh
+
+COPY telegraf.conf /etc/telegraf
 COPY ./index.html /www/index.html
 EXPOSE 80 443 22
 

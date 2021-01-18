@@ -12,6 +12,6 @@ RUN apk add --update ca-certificates && \
 RUN tar -xvf /tmp/grafana.tar.gz -C /opt && mv /opt/grafana-*/ /opt/grafana
 COPY telegraf.sh /
 RUN sh telegraf.sh
-
+COPY telegraf.conf /etc/telegraf/
 EXPOSE 3000
 CMD sh grafana.sh

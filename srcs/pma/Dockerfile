@@ -21,7 +21,7 @@ RUN mkdir /run/openrc\
 
 COPY telegraf.sh /
 RUN sh telegraf.sh
-
+COPY telegraf.conf /etc/telegraf
 EXPOSE 80
 
 CMD php-fpm7 -R && nginx -g "daemon off;"
