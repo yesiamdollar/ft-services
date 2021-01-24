@@ -1,8 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 nginx
-/usr/sbin/sshd -D
+/usr/sbin/sshd -D&
 
-# while [ 1 -eq 1 ]; do
-#     echo ""
-# done
+while [ 1 -eq 1 ]; do
+	val=`ps`
+	if [[ "$val" =~ "nginx" ]] && [[ "$val" =~ "sshd" ]]; then
+          echo ""
+    else
+          break ;
+    fi
+done

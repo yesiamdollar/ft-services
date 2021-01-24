@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-RUN apk add --no-cache wget nginx openssl openssh
+RUN apk add --no-cache wget nginx bash openssl openssh
 RUN adduser -D -g 'www' www
 RUN mkdir /www ; chown -R www:www /www 
 RUN openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=BG/O=dollar, Inc./CN=localhost"\
@@ -23,7 +23,7 @@ COPY ./index.html /www/index.html
 EXPOSE 80 443 22
 
 # CMD ["nginx", "-g", "daemon off;"]
-ENTRYPOINT ["sh", "/run.sh"]
+ENTRYPOINT ["bash", "/run.sh"]
 
 
 
