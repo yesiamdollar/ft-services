@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 
-RUN apk add --update mariadb mariadb-client openrc
+RUN apk add --update mariadb mariadb-client openrc bash
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 COPY setup.sh setup.sh
@@ -18,4 +18,4 @@ EXPOSE 3306
 
 
 
-ENTRYPOINT sh setup.sh
+ENTRYPOINT bash setup.sh
