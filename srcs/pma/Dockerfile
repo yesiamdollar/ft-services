@@ -15,7 +15,7 @@ ADD config.inc.php /
 RUN cp /config.inc.php /www/
 RUN mkdir /www/tmp/
 RUN chmod 777 /www/tmp
-
+COPY run.sh /
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
@@ -23,9 +23,9 @@ RUN mkdir /run/openrc\
 #RUN sh telegraf.sh
 #:COPY telegraf.conf /etc/telegraf
 EXPOSE 80
-COPY run.sh /
+
 #CMD iphp-fpm7 -R && nginx -g "daemon off;"
-ENTRYPOINT ["bash", "/run"]
+ENTRYPOINT ["bash", "/run.sh"]
 
 
 #CMD ["nginx", "-g", "daemon off;"]
