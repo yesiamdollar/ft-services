@@ -11,11 +11,8 @@ ADD users.sql /
 ADD wordpress_db.sql /
 VOLUME ["/var/lib/mysql"]
 
-#COPY telegraf.sh /
-#RUN sh telegraf.sh
-#COPY telegraf.conf /etc/telegraf/
 EXPOSE 3306
 
 
 
-ENTRYPOINT bash setup.sh
+ENTRYPOINT sh setup.sh

@@ -15,14 +15,9 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ssh.sh /tmp
 RUN sh /tmp/ssh.sh
 COPY run.sh /
-#COPY telegraf.sh /
-#RUN sh telegraf.sh
-
-#COPY telegraf.conf /etc/telegraf
 COPY ./index.html /www/index.html
 EXPOSE 80 443 22
 
-# CMD ["nginx", "-g", "daemon off;"]
 ENTRYPOINT ["bash", "/run.sh"]
 
 

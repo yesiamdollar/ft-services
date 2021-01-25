@@ -8,6 +8,7 @@ mysqladmin -u root password toor
 mysql -u root < /users.sql
 mysql -u root < /wordpress.sql
 rc-service mariadb restart
+
 while [ 1 -eq 1 ]; do
 	val=`ps`
     if [[ ! "$val" =~ "mysql" ]];then

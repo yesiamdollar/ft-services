@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-RUN apk add --no-cache nginx openrc tar wget
+RUN apk add --no-cache nginx openrc tar wget bash
 RUN adduser -D -g 'www' www
 RUN mkdir /www ; chown -R www:www /www
 RUN mkdir /run/nginx; touch /run/nginx/nginx.pid
@@ -18,14 +18,11 @@ RUN cp /wp-config.php /www/
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
-
-COPY telegraf.sh /
-RUN sh telegraf.sh
-COPY telegraf.conf /etc/telegraf/
+COPY run.sh /
 
 
 EXPOSE 5050
-CMD php-fpm7 -R && nginx -g "daemon off;"
+ENTRYPOINT sh /run.sh
 
 
 

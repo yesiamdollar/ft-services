@@ -19,13 +19,7 @@ COPY run.sh /
 RUN mkdir /run/openrc\
   && touch /run/openrc/softlevel
 
-#COPY telegraf.sh /
-#RUN sh telegraf.sh
-#:COPY telegraf.conf /etc/telegraf
 EXPOSE 80
 
-#CMD iphp-fpm7 -R && nginx -g "daemon off;"
 ENTRYPOINT ["bash", "/run.sh"]
 
-
-#CMD ["nginx", "-g", "daemon off;"]

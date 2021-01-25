@@ -1,8 +1,12 @@
 #!/bin/sh
-php-fpm7 -R &
-nginx -g "daemon off;" &
-telegraf &
+nginx
+php-fpm7 -R&
 
-while [[ true ]]; do
-    sleep 1
+while [ 1 -eq 1 ]; do
+	val=`ps`
+	if [[ "$val" =~ "nginx" ]] && [[ "$val" =~ "php-fpm7" ]]; then
+          echo ""
+    else
+          break ;
+    fi
 done
