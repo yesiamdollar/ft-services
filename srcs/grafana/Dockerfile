@@ -10,8 +10,6 @@ RUN apk add --update ca-certificates && \
     rm -rf /tmp/glibc-2.32-r0.apk
 
 RUN tar -xvf /tmp/grafana.tar.gz -C /opt && mv /opt/grafana-*/ /opt/grafana
-COPY telegraf.sh /
-RUN sh telegraf.sh
-COPY telegraf.conf /etc/telegraf/
+COPY grafana.db /opt/grafana/data/
 EXPOSE 3000
 CMD sh grafana.sh
