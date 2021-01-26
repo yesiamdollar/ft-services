@@ -22,7 +22,7 @@ COPY run.sh /
 
 
 EXPOSE 5050
-ENTRYPOINT sh /run.sh
+ENTRYPOINT ["bash", "/run.sh"]
 
 
 

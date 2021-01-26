@@ -9,7 +9,7 @@ RUN apk add php7-fpm php7-mbstring php7-session php7-mcrypt php7-soap php7-opens
 COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz -O /tmp/pma.tar.gz 
 
-RUN tar -C /tmp/ -xvf /tmp/pma.tar.gz 
+RUN tar -C /tmp/ -xvf /tmp/pma.tar.gz ; mv /tmp/phpMyAdmin-5.0.4-english /tmp/pma ; rm /tmp/pma.tar.gz
 RUN cp -rf /tmp/pma/* /www/
 ADD config.inc.php /
 RUN cp /config.inc.php /www/

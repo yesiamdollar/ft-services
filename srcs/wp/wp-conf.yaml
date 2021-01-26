@@ -35,4 +35,4 @@ spec:
         - 
           name: "wp-http"
           containerPort: 5050
-        # command: ["nginx", "-g", "daemon off;"]
+        # command: ["while [ true ];do echo l;done"]

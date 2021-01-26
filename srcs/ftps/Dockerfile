@@ -13,9 +13,6 @@ RUN echo $'TLS                         2\nTLSCipherSuite               HIGH:MEDI
 RUN chmod 600 $PURE_PATH/pure-ftpd.pem
 EXPOSE 21 30000:30009
 
-COPY telegraf.sh /
-RUN sh telegraf.sh
-COPY telegraf.conf /etc/telegraf/
 COPY ./ftps.sh /ftps.sh
 
 CMD sh ftps.sh

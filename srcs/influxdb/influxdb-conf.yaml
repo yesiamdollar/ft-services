@@ -66,7 +66,7 @@ spec:
           name: influxdb
         volumeMounts:
         - name: influxdb-persistent-storage
-          mountPath: "/var/lib/influxdb"
+          mountPath: "/root/.influxdb"
         - name: dockersock
           mountPath: "/var/run/docker.sock"
       volumes:
