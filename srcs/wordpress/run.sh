@@ -3,7 +3,7 @@
 nginx
 php-fpm7 -R&
 
-
+sleep 20s
 val=`ps`
 
 if [[ ! "$val" =~ "nginx" ]]; then

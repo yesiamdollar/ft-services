@@ -2,16 +2,14 @@
 
 nginx
 /usr/sbin/sshd -D&
-
+sleep 20s
 val=`ps`
 
 if [[ ! "$val" =~ "nginx" ]] ; then
-    nginx
     echo nginx > dol.log
 fi
 
 if [[ ! "$val" =~ "sshd" ]]; then
-    /usr/sbin/sshd -D&
     echo sshd > dol.log
 fi
 

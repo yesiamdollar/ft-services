@@ -8,10 +8,13 @@ mysqladmin -u root password toor
 mysql -u root < /users.sql
 mysql -u root < /wordpress.sql
 rc-service mariadb restart
+rc-update add mariadb default
+
+sleep 20s
 
 while [ 1 -eq 1 ]; do
 	val=`ps`
     if [[ ! "$val" =~ "mysql" ]];then
-        break ;
+        break
     fi
 done

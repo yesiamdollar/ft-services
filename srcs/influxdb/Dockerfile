@@ -9,6 +9,6 @@ run sh telegraf.sh
 copy telegraf.conf /etc/telegraf
 copy run.sh /
 expose 8086
-# CMD influxd
+
 ENTRYPOINT ["bash", "/run.sh"]
 
